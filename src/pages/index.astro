@@ -1,0 +1,416 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const APP_URL = 'https://app.associamisubito.it';
+
+const heroImages = [
+    '/images/homepage/photo-calcetto.jpg',
+    '/images/homepage/photo-padel.jpg',
+    '/images/homepage/photo-tennis.jpg',
+    '/images/homepage/photo-calcio.jpg',
+];
+
+const pillars = [
+    {
+        icon: 'puzzle',
+        title: 'Tutto in un unico posto',
+        desc: 'Prenotazioni, soci, pagamenti e documenti sempre accessibili da qualsiasi dispositivo. Un solo strumento per gestire tutta la tua attività.',
+    },
+    {
+        icon: 'users',
+        title: 'Facile da usare',
+        desc: 'Un gestionale intuitivo, pensato per chi ha altro a cui pensare. Operativo dal primo giorno, senza formazione complessa.',
+    },
+    {
+        icon: 'shield',
+        title: 'Assistenza dedicata',
+        desc: 'Hai un problema? Il nostro team risponde in tempi brevi con persone disponibili e competenti, sempre al tuo fianco.',
+    },
+];
+
+const useCases = [
+    {label: 'Campi da Calcetto', color: 'bg-emerald-500'},
+    {label: 'Padel & Tennis', color: 'bg-blue-500'},
+    {label: 'Corsi di Nuoto', color: 'bg-teal-500'},
+    {label: 'Noleggio Bici', color: 'bg-amber-500'},
+    {label: 'Golf', color: 'bg-green-700'},
+    {label: 'Beach Volley', color: 'bg-orange-500'},
+    {label: 'Lezioni Private', color: 'bg-red-500'},
+    {label: 'Noleggio Gommoni', color: 'bg-teal-600'},
+    {label: 'Pilates & Yoga', color: 'bg-emerald-600'},
+    {label: 'Sport Acquatici', color: 'bg-blue-600'},
+    {label: 'Basket', color: 'bg-orange-600'},
+    {label: 'Noleggio Attrezzature', color: 'bg-slate-600'},
+];
+
+const features = [
+    {
+        title: 'Prenotazioni online',
+        desc: 'I tuoi clienti prenotano da qualsiasi dispositivo, in pochi clic. Niente più telefonate o fogli di carta.',
+        color: 'bg-blue-50 text-blue-500',
+        image: '/images/homepage/photo-feature-search.jpg',
+        icon: 'map-pin',
+    },
+    {
+        title: 'Calendario e disponibilità',
+        desc: 'Disponibilità aggiornata in tempo reale. Organizzi slot, eventi e risorse in un solo posto.',
+        color: 'bg-orange-50 text-[#F28F16]',
+        image: '/images/homepage/photo-feature-time.jpg',
+        icon: 'calendar',
+    },
+    {
+        title: 'Gestione soci',
+        desc: 'Anagrafica, tessere, scadenze e accessi: tutto sotto controllo con notifiche automatiche.',
+        color: 'bg-emerald-50 text-emerald-500',
+        image: '/images/homepage/photo-feature-manage.jpg',
+        icon: 'trophy',
+    },
+    {
+        title: 'Meno burocrazia',
+        desc: 'Riduci le telefonate e il lavoro manuale. Il tuo staff può concentrarsi su ciò che conta davvero.',
+        color: 'bg-slate-100 text-slate-700',
+        image: '/images/homepage/kayak.png',
+        icon: 'phone',
+    },
+    {
+        title: 'Pagamenti digitali',
+        desc: 'Incassa quote e prenotazioni online, con ricevute automatiche e tariffe personalizzate per soci e ospiti.',
+        color: 'bg-amber-50 text-amber-600',
+        image: '/images/homepage/skiBooking.png',
+        icon: 'credit-card',
+    },
+    {
+        title: 'Più clienti, meno sforzo',
+        desc: 'Aumenta la visibilità della tua attività e raggiungi nuovi clienti grazie alla presenza sulla piattaforma.',
+        color: 'bg-green-50 text-green-600',
+        image: '/images/homepage/visibltyGym.jpg',
+        icon: 'chart',
+    },
+];
+
+const footerLinks = ['Privacy Policy', 'Termini', 'Contatti', 'Supporto'];
+const currentYear = new Date().getFullYear();
+---
+
+<Layout>
+    <div class="min-h-screen bg-slate-50">
+        <main>
+            <!-- Hero Section -->
+            <section class="relative min-h-[85vh] flex items-center px-4 py-20 overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    {heroImages.map((img, index) => (
+                            <img
+                                    src={img}
+                                    alt="Sports Court"
+                                    class:list={[
+                                        'hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-1000',
+                                        index === 0 ? 'opacity-100' : 'opacity-0',
+                                    ]}
+                                    data-index={index}
+                            />
+                    ))}
+                    <div class="absolute inset-0 bg-slate-900/60 sm:bg-slate-900/40"/>
+                    <div class="absolute inset-0 hidden sm:block bg-gradient-to-b from-slate-700/60 via-transparent via-50% to-slate-50"/>
+                </div>
+
+                <div class="max-w-7xl mx-auto text-center relative z-10">
+                    <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-4 sm:mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2 text-[#F28F16]">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"/>
+                        </svg>
+                        Il gestionale per la tua attività
+                    </div>
+
+                    <h1 class="text-3xl xs:text-4xl sm:text-5xl md:text-8xl font-black text-white leading-[1.1] sm:leading-[1.05] tracking-tighter mb-4 sm:mb-8 drop-shadow-2xl">
+                        Gestisci la tua attività <br/>
+                        <span class="text-[#F28F16]">senza pensieri.</span>
+                    </h1>
+
+                    <p class="max-w-2xl mx-auto text-white/90 text-base sm:text-lg md:text-xl font-medium leading-relaxed mb-6 sm:mb-12 drop-shadow-lg px-2 sm:px-0">
+                        Prenotazioni, soci, pagamenti e calendario in un'unica piattaforma. Pensata per centri sportivi, noleggi, scuole e qualsiasi tipo di attività.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+                        <a
+                                href={`${APP_URL}/login`}
+                                class="w-full sm:w-auto px-8 py-4 sm:px-12 sm:py-6 bg-[#F28F16] text-white text-xs sm:text-sm font-black uppercase tracking-[0.15em] rounded-[2rem] shadow-2xl shadow-orange-500/20 hover:scale-105 transition-transform"
+                        >
+                            Inizia Ora — È Gratis
+                        </a>
+                        <a
+                                href="#cosa-puoi-fare"
+                                class="w-full sm:w-auto px-8 py-4 sm:px-12 sm:py-6 bg-white text-slate-900 sm:bg-white/10 sm:text-white sm:backdrop-blur-md text-xs sm:text-sm font-black uppercase tracking-[0.15em] rounded-[2rem] border-2 border-white sm:border sm:border-white/20 hover:bg-slate-100 sm:hover:bg-white/20 transition-colors"
+                        >
+                            Scopri di più
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Use Cases Marquee -->
+            <section class="py-20 px-4 overflow-hidden">
+                <div class="max-w-7xl mx-auto text-center mb-12">
+                    <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-4">
+                        Ideale per <span class="text-[#F28F16]">qualsiasi attività</span>
+                    </h2>
+                    <p class="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">
+                        Un unico strumento, infinite possibilità
+                    </p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+                    {useCases.map((uc) => (
+                            <span class:list={['use-case-tag px-5 py-3 rounded-2xl text-xs font-black uppercase tracking-widest text-white shadow-lg cursor-default', uc.color]}>
+							{uc.label}
+						</span>
+                    ))}
+                </div>
+            </section>
+
+            <!-- Pillars Section (ex-Stats) -->
+            <section id="cosa-puoi-fare" class="bg-white py-24 border-y border-slate-100">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl sm:text-5xl font-black text-slate-900 tracking-tighter mb-4">
+                            Perché scegliere <span class="text-[#F28F16]">Associami Subito</span>?
+                        </h2>
+                        <p class="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">
+                            Semplice, completo, sempre al tuo fianco
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {pillars.map((pillar) => (
+                                <div class="text-center p-8 rounded-3xl bg-slate-50 border border-slate-100">
+                                    <div class="w-14 h-14 bg-[#F28F16]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        {pillar.icon === 'puzzle' && (
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-[#F28F16]">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                          d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 0 1-.657.643 48.39 48.39 0 0 1-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 0 1-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 0 0-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 0 1-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 0 0 .657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 0 1-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 0 0 5.427-.63 48.05 48.05 0 0 0 .582-4.717.532.532 0 0 0-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 0 0 .658-.663 48.422 48.422 0 0 0-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 0 1-.61-.58v0Z"/>
+                                                </svg>
+                                        )}
+                                        {pillar.icon === 'users' && (
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-[#F28F16]">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/>
+                                                </svg>
+                                        )}
+                                        {pillar.icon === 'shield' && (
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-[#F28F16]">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                                                </svg>
+                                        )}
+                                    </div>
+                                    <h3 class="text-xl font-black text-slate-900 tracking-tight mb-3">{pillar.title}</h3>
+                                    <p class="text-slate-500 font-medium text-sm leading-relaxed">{pillar.desc}</p>
+                                </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="vantaggi" class="py-32 px-4 bg-white">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-24">
+                        <h2 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tighter mb-6">
+                            Tutto ciò di cui <span class="text-[#F28F16]">hai bisogno</span>
+                        </h2>
+                        <p class="text-slate-400 font-bold uppercase text-[10px] tracking-[0.3em]">
+                            Funzionalità pensate per semplificarti la vita
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {features.map((feature) => (
+                                <div class="group bg-white rounded-3xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 overflow-hidden">
+                                    <div class="h-48 overflow-hidden relative">
+                                        <img
+                                                src={feature.image}
+                                                alt={feature.title}
+                                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                loading="lazy"
+                                        />
+                                        <div class:list={['absolute top-6 left-6 w-12 h-12 rounded-xl flex items-center justify-center shadow-lg', feature.color]}>
+                                            {feature.icon === 'map-pin' && (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+                                                    </svg>
+                                            )}
+                                            {feature.icon === 'calendar' && (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                              d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"/>
+                                                    </svg>
+                                            )}
+                                            {feature.icon === 'trophy' && (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                              d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0 1 16.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.016 6.016 0 0 1-2.27.898m0 0c-.68.183-1.396.288-2.143.322m-3.854 0a6.016 6.016 0 0 1-2.27-.898"/>
+                                                    </svg>
+                                            )}
+                                            {feature.icon === 'phone' && (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/>
+                                                    </svg>
+                                            )}
+                                            {feature.icon === 'credit-card' && (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"/>
+                                                    </svg>
+                                            )}
+                                            {feature.icon === 'chart' && (
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"/>
+                                                    </svg>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div class="p-8 space-y-4">
+                                        <h3 class="text-xl font-black text-slate-900 tracking-tight">{feature.title}</h3>
+                                        <p class="text-slate-500 font-medium text-sm leading-relaxed">{feature.desc}</p>
+                                    </div>
+                                </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bento Section -->
+            <section class="py-32 px-4 bg-slate-900 text-white rounded-[3rem] mx-4 mb-32">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                        <!-- Prenotazioni senza limiti -->
+                        <div class="lg:col-span-8 p-10 bg-white/5 rounded-3xl border border-white/10 flex flex-col justify-between min-h-[350px]">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-[#F28F16] mb-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
+                                </svg>
+                                <h3 class="text-3xl font-black tracking-tighter mb-4">Non solo campi sportivi.</h3>
+                                <p class="text-slate-400 text-base font-medium max-w-md">
+                                    Associami Subito semplifica la gestione di qualsiasi tipo di risorsa: campi, stanze, biciclette, gommoni, attrezzature e molto altro. Un gestionale completo per ogni realtà.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-6">
+                                {useCases.slice(0, 6).map((uc) => (
+                                        <span class:list={['px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-white', uc.color]}>
+										{uc.label}
+									</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        <!-- Gratis per sempre -->
+                        <div class="lg:col-span-4 p-10 bg-[#F28F16] rounded-3xl flex flex-col justify-between min-h-[350px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-white mb-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 1 0 9.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1 1 14.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/>
+                            </svg>
+                            <div>
+                                <h3 class="text-3xl font-black tracking-tighter mb-4 text-white">Gratis. Per sempre.</h3>
+                                <p class="text-orange-100 text-base font-medium">
+                                    Nessun costo nascosto, nessun vincolo. Attiva il servizio e gestisci la tua attività gratuitamente, per sempre.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Gestione soci -->
+                        <div class="lg:col-span-4 p-10 bg-white/5 rounded-3xl border border-white/10 min-h-[250px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-emerald-400 mb-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.745 3.745 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/>
+                            </svg>
+                            <h3 class="text-xl font-black tracking-tighter mb-3">Controllo accessi smart</h3>
+                            <p class="text-slate-400 font-medium text-sm">
+                                Tessere digitali, accessi con smartphone e sconti riservati ai soci. Tutto automatico, zero carta.
+                            </p>
+                        </div>
+
+                        <!-- Sei un gestore? -->
+                        <div class="lg:col-span-8 p-10 bg-white/5 rounded-3xl border border-white/10 min-h-[250px] flex flex-col sm:flex-row items-center justify-between gap-6">
+                            <div class="max-w-md">
+                                <h3 class="text-2xl font-black tracking-tighter mb-3">Puoi iniziare in pochi minuti</h3>
+                                <p class="text-slate-400 font-medium text-sm">
+                                    Registrati, configura la tua attività e sei operativo. Funziona per centri sportivi, noleggi, scuole e qualsiasi tipo di servizio.
+                                </p>
+                            </div>
+                            <a
+                                    href={`${APP_URL}/register`}
+                                    class="px-8 py-4 bg-white text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-xl hover:bg-[#F28F16] hover:text-white transition-colors"
+                            >
+                                Registrati Gratis
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-32 px-4 relative overflow-hidden mx-4 mb-32 rounded-[3rem]">
+                <div class="absolute inset-0 z-0">
+                    <img
+                            src="/images/homepage/letsPlay.jpg"
+                            alt="Campo sportivo"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-slate-900/60"/>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-10 relative z-10 text-center">
+                    <h2 class="text-5xl sm:text-7xl font-black text-white tracking-tighter drop-shadow-2xl">
+                        La tua attività, <br/>senza limiti.
+                    </h2>
+                    <a
+                            href={`${APP_URL}/login`}
+                            class="inline-block px-14 py-7 bg-[#F28F16] text-white text-base font-black uppercase tracking-[0.2em] rounded-[2rem] shadow-2xl shadow-orange-500/40 hover:scale-105 transition-transform"
+                    >
+                        Prova Gratis
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-16 border-t border-slate-200 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                    <div class="flex items-center gap-3">
+                        <img src="/images/logo.png" alt="Associami Subito" class="w-8 h-8 rounded-xl"/>
+                        <span class="text-xl font-black text-slate-900 tracking-tighter">
+							Associami<span class="text-[#F28F16]">Subito</span>
+						</span>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-8">
+                        {footerLinks.map((link) => (
+                            link === 'Contatti' ? (
+                                    <a href="/contattaci" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-[#F28F16] transition-colors">
+                                        {link}
+                                    </a>
+                            ) : (
+                                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400 cursor-pointer hover:text-[#F28F16] transition-colors">
+									{link}
+								</span>
+                            )
+                        ))}
+                    </div>
+                </div>
+                <div class="mt-10 pt-10 border-t border-slate-100 text-center">
+                    <p class="text-slate-300 text-[10px] font-black uppercase tracking-[0.3em]">
+                        &copy; {currentYear} Associami Subito. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</Layout>
+
+<script>
+    const slides = document.querySelectorAll<HTMLImageElement>('.hero-slide');
+    let current = 0;
+
+    setInterval(() => {
+        slides[current].classList.remove('opacity-100');
+        slides[current].classList.add('opacity-0');
+        current = (current + 1) % slides.length;
+        slides[current].classList.remove('opacity-0');
+        slides[current].classList.add('opacity-100');
+    }, 5000);
+</script>

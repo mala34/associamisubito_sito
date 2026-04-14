@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme inline {
+	--default-font-family: 'Inter', sans-serif;
+	--default-mono-font-family: 'Fira Code', monospace;
+	--font-sans: 'Inter', sans-serif;
+	--font-mono: 'Fira Code', monospace;
+	--breakpoint-xs: 28rem;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		overflow-x: hidden;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(10px);
+}
+
+.use-case-tag {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case-tag:hover {
+	transform: scale(1.1) translateY(-4px);
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
