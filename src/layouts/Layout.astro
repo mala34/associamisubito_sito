@@ -6,7 +6,7 @@ interface Props {
 	title?: string;
 }
 
-const { title = 'Associami Subito — Il gestionale per la tua attività' } = Astro.props;
+const { title = 'Associami Subito — Il gestionale per ASD e società sportive' } = Astro.props;
 const siteUrl = 'https://associamisubito.it';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 ---
@@ -23,7 +23,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 		<link rel="canonical" href={canonicalURL} />
 
 		<!-- Open Graph -->
-		<meta property="og:title" content="Associami Subito - Il gestionale per la tua attività" />
+		<meta property="og:title" content="Associami Subito - Il gestionale per ASD e società sportive" />
 		<meta property="og:description" content="Gestisci prenotazioni, soci e pagamenti della tua attività in un'unica piattaforma." />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
@@ -36,7 +36,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 
 		<!-- Twitter Cards -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Associami Subito - Il gestionale per la tua attività" />
+		<meta name="twitter:title" content="Associami Subito - Il gestionale per ASD e società sportive" />
 		<meta name="twitter:description" content="Gestisci prenotazioni, soci e pagamenti in un'unica piattaforma. Gratis, per sempre." />
 		<meta name="twitter:image" content={`${siteUrl}/images/og-image.jpg`} />
 		<meta name="twitter:image:alt" content="Associami Subito - Gestionale per attività e prenotazioni" />
