@@ -41,11 +41,12 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 		<meta name="twitter:image" content={`${siteUrl}/images/og-image.jpg`} />
 		<meta name="twitter:image:alt" content="Associami Subito - Gestionale per attività e prenotazioni" />
 
-		<!-- Schema.org JSON-LD -->
+		<!-- Schema.org JSON-LD: Organization -->
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Organization",
 			"name": "Associami Subito",
+			"alternateName": ["Associami", "AssociamiSubito", "Associami Subito"],
 			"url": siteUrl,
 			"logo": `${siteUrl}/images/logo.png`,
 			"description": "Gestionale completo per la tua attività: prenotazioni, soci, pagamenti e molto altro.",
@@ -55,6 +56,32 @@ const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
 				"availableLanguage": ["Italian", "English"]
 			},
 			"sameAs": []
+		})} />
+
+		<!-- Schema.org JSON-LD: SoftwareApplication -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "SoftwareApplication",
+			"name": "Associami Subito",
+			"alternateName": ["Associami", "AssociamiSubito"],
+			"applicationCategory": "BusinessApplication",
+			"applicationSubCategory": "Gestionale ASD e Società Sportive",
+			"operatingSystem": "Web",
+			"url": siteUrl,
+			"description": "Gestionale completo per ASD e società sportive: prenotazioni, soci, pagamenti e calendario.",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "EUR",
+				"description": "Gratis per sempre"
+			},
+			"keywords": [
+				"gestionale ASD",
+				"gestione soci",
+				"prenotazioni sportive",
+				"società sportive",
+				"gestionale associazioni"
+			]
 		})} />
 
 		<!-- Fonts -->
