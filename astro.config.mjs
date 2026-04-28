@@ -7,7 +7,12 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://associamisubito.it',
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    serialize(item) {
+      item.lastmod = new Date().toISOString();
+      return item;
+    }
+  })],
   vite: {
     plugins: [tailwindcss()]
   }
